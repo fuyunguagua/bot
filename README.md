@@ -107,15 +107,3 @@ python main.py
 ```
 python main.py group_id clusterFileName
 ```
-
-**TODO**
-
-* epoch 24小时不合理，待改进
-* 核心算法(x-means/others)待添加
-
-web
----
-
-**TODO**
-
-* flask开发展示界面
