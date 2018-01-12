@@ -10,4 +10,3 @@ class DB:
     NAME = 'BOTDATA'
 
 db = MySQLdb.connect(DB.HOST, DB.USER, DB.PASS, DB.NAME)
-

@@ -5,22 +5,28 @@ from graph.botnet import botnet_list
 def analys(num):
     os.chdir(os.path.abspath('.'))
     for botnet in botnet_list:
+        botnet['bots_id'] = []
+        with open("C:/Desktop/ip.csv") as f:
+
+            reader = csv.reader(f)
+            for row_index,row in enumerate(reader):
+                if row[0] in botnet['bots'] and row[1] == botnet['CNC']:
+                    botnet['bots_id'].append(row_index)
+        print len(botnet['bots_id'])
         botnet['row_record'] = {}
-        botnet['cnc_row_record'] = []
 
     ipnum = []
-    with open('C:/Desktop/bot/botminer/result/kmeans_result41{}.csv'.format(num)) as f:
+
+    # with open('C:/Desktop/bot/botminer/result/kmeans_result41{}.csv'.format(num)) as f:
+    with open('C:/Desktop/kmeans52_{}.csv'.format(num)) as f:
         reader = csv.reader(f)
         for row_index,row in enumerate(reader):
             ipnum.append(len(row))
             for bot_index, botnet in enumerate(botnet_list):
                 botnet['row_record'][row_index] = set()
-                botnet['cnc_row_record'].append(0)
-                for ip in row:
-                    if ip == botnet['CNC']:
-                        botnet['cnc_row_record'][row_index] += 1
-                    if ip in botnet['bots']:
-                        botnet['row_record'][row_index].add(ip)
+                for id in row:
+                    if int(id) in botnet['bots_id']:
+                        botnet['row_record'][row_index].add(id)
 
     print '\t'.join(['Name','row_index','count'])
     print
@@ -71,4 +77,4 @@ def analys_oddball(top1000_oddball,clusterfile):
 
 if __name__ == '__main__':
 
-    analys()
+    analys(600)

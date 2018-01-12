@@ -122,7 +122,7 @@ def cross():
     statistics_oddball(oddballlist)
     get_top1000_oddball_id(top1000)
     top1000_oddball = [oddballlist[int(id)] for id in top1000]
-    analys_oddball(top1000_oddball,'C:/Desktop/kmeans500.csv')
+    analys_oddball(top1000_oddball,'C:/Desktop/kmeans52_600.csv')
 
 
 if __name__ == '__main__':
