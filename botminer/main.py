@@ -51,7 +51,6 @@ def main():
 
 
 def run():
-    pass
     # init_options()
     # read_packets()
     # split_flow()
@@ -61,11 +60,12 @@ def run():
     # run_fetchdata()
     # affinityPropagation(1,2)
     # run_kmeans(100)
-    # for i in range(1,11):
-    #     print '-'*100
-    #     print 'cluster number is: ',100+i*50
-    #     run_kmeans(100+i*50)
-    #     analys(100+i*50)
+    # analys(100)
+    for i in range(1,11):
+        print '-'*100
+        print 'cluster number is: ',100+i*50
+        run_kmeans(100+i*50)
+        analys(100+i*50)
     # run_cluster() #聚类cflow
     # cross_cluster(cpanel.group, cluster_result_file='result/msresult.csv')
     # view.show_score()# 画图展示得分的分布
@@ -126,4 +126,4 @@ def cross():
 
 
 if __name__ == '__main__':
-    cross()
+    run()

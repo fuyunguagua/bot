@@ -19,7 +19,7 @@ def run_fetchdata():
     ip = open("result/ip.csv","w+")
     for i in xrange(len(cflows)):
         f.write(cflows[i][6] + ',' + cflows[i][7] + ',' + cflows[i][8] + ',' + cflows[i][9] + "\n")#每个ip的39维数据
-        ip.write(cflows[i][1]+"\n")#记录ip
+        ip.write(cflows[i][1]+','+cflows[i][2]+"\n")#记录ip
     f.close()
     ip.close()
     # ip = open("result/ip.csv" ,"r")
@@ -33,7 +33,7 @@ def get_cflow_data():
     import MySQLdb
     db = MySQLdb.connect(DB.HOST, DB.USER, DB.PASS, DB.NAME)
     cursor = db.cursor()
-    sql = "select * from Cflow3 order by id"
+    sql = "select * from Cflow4 order by id"
     cflows = cursor.fetchmany(cursor.execute(sql))
     print "[database] cflows: {}".format(len(cflows))
     return cflows

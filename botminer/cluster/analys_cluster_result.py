@@ -6,7 +6,7 @@ def analys(num):
     os.chdir(os.path.abspath('.'))
     for botnet in botnet_list:
         botnet['bots_id'] = []
-        with open("C:/Desktop/ip.csv") as f:
+        with open("C:/Desktop/bot/botminer/result/ip.csv") as f:
             reader = csv.reader(f)
             for row_index,row in enumerate(reader):
                 if row[0] in botnet['bots'] and row[1] == botnet['CNC']:
@@ -16,22 +16,16 @@ def analys(num):
 
     ipnum = []
 
-    # with open('C:/Desktop/bot/botminer/result/kmeans_result41{}.csv'.format(num)) as f:
-    with open('C:/Desktop/kmeans52_{}.csv'.format(num)) as f:
-        min = 1000
-        max = 0
+    with open('C:/Desktop/bot/botminer/result/kmeans_result41{}.csv'.format(num)) as f:
+    # with open('C:/Desktop/kmeans52_{}.csv'.format(num)) as f:
         reader = csv.reader(f)
         for row_index,row in enumerate(reader):
             ipnum.append(len(row))
             for bot_index, botnet in enumerate(botnet_list):
                 botnet['row_record'][row_index] = set()
                 for id in row:
-                    min = int(id) if int(id) < min else min
-                    max = int(id) if int(id) > max else max
                     if int(id) in botnet['bots_id']:
                         botnet['row_record'][row_index].add(id)
-    print 'max',max
-    print 'min',min
     print '\t'.join(['Name','row_index','count'])
     print
     for botnet in botnet_list:

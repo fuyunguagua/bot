@@ -22,8 +22,26 @@ def split_flow():
         else:
             filtered_flows.append(Flow(count, _vector, _packets))
             count += 1
-
-    cpanel.FLOWS = filtered_flows
+    #处理mirai僵尸网络，将连续的两个数据包作为一个flow
+    new_filtered_flows = []
+    for flow in filtered_flows:
+        if flow.ip_dst == '120.76.125.235':
+            print 'Detect a telnet flow,the packets is :',len(flow.packets)
+            num = 0
+            _vector = ':'.join([flow.ip_src, flow.ip_dst, flow.port_src, flow.port_dst])
+            try:
+                for i in range(len(flow.packets)):
+                    if flow.packets[i].byte == 70:
+                        p = [flow.packets[i],flow.packets[i+1]]
+                        new_filtered_flows.append(Flow(count, _vector, p))
+                        num += 1
+                        count += 1
+            except IndexError:
+                continue
+            print 'Aggregation new flow number is:',num
+        else:
+            new_filtered_flows.append(flow)
+    cpanel.FLOWS = new_filtered_flows
     print '[common] Instant flows: {}'.format(len(cpanel.FLOWS))
 
     # 计算三个关键值
@@ -47,9 +65,10 @@ def split_cflow():
         # TODO add filter here
         filtered_cflows.append(Cflow(count, 0, 24, _vector, _flows))  # TODO epoch调整为全局变量？动态获取？
         count += 1
-
+    for cf in filtered_cflows:
+        if cf.ip_dst == '120.76.125.235':
+            print 'C-flow flows nums:',cf.flow_count
     cpanel.C_FLOWS = filtered_cflows
-    # filter_cflow()
     print '[common] Instant C_flows: {}'.format(len(cpanel.C_FLOWS))
 
 def filter_cflow():

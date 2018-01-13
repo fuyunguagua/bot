@@ -20,7 +20,8 @@ def run_kmeans(cluster_num):
         kmeans = [[] for i in range(cluster_num)]
         # print len(kmeans)
         for i in xrange(len(y_pred)):
-            kmeans[y_pred[i]].append(ip_src[i])
+            # kmeans[y_pred[i]].append(ip_src[i])
+            kmeans[y_pred[i]].append(i)
         for i in range(cluster_num):
             # print len(kmeans[i]), kmeans[i]
             result.append((kmeans[i]))

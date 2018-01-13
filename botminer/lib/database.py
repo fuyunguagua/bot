@@ -56,7 +56,7 @@ def save_calc_results():
 
     for cflow in cpanel.C_FLOWS:
         query = """
-            INSERT INTO cflow3(
+            INSERT INTO cflow4(
              IP_SRC,
              IP_DST,
              PORT_DST,
@@ -79,7 +79,7 @@ def save_calc_results():
 
     db.commit()
 
-    query = 'SELECT COUNT(*) FROM Cflow3'
+    query = 'SELECT COUNT(*) FROM cflow4'
     cursor.execute(query)
     result = cursor.fetchone()
     print "[database] Done, inserted items count: {}".format(int(result[0]))

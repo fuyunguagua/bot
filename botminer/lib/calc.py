@@ -86,9 +86,6 @@ def scale_cflow():
     for cflow in cpanel.C_FLOWS:
         cflow.fph = cflow.fph[1:]
     # scale_data_fph()
-    # for cflow in cpanel.C_FLOWS:
-    #     if cflow.ip_dst == '120.76.125.235':
-    #         print str(cflow.flow_count)+'\t',cflow.fph
     for each in ['bps', 'ppf', 'bpp']:
         scale_data(each)
 
@@ -117,7 +114,5 @@ def scale_data_fph():
         if '--debug' in sys.argv:
             print final_vector, len(cflow.flows)
 
-        # if sum([i for i in final_vector]) != len(cflow.fph):  # 检查算法是否正确
-        #     raise Exception('[scale-data] check this manually(3).')
         cflow.fph = final_vector
 

@@ -20,14 +20,6 @@ class Cflow:
         self.flows = flows
         self.flow_count = len(self.flows)
 
-    # def calc(self):
-    #     for f in self.flows:
-    #         leftIndex = int(
-    #             (f.packets[0].timestamp - cpanel.START_TIME) // cpanel.TIME_UNIT)  # 有个坑，普通变量拿不到改变后的值，用list引用可以
-    #         rightIndex = int((f.packets[-1].timestamp - cpanel.START_TIME) // cpanel.TIME_UNIT + 1)
-    #         for i in range(leftIndex, rightIndex):
-    #             self.fph.append(i)
-
     def cals(self):
         self.flows = sorted(self.flows,key=lambda x:x.packets[0].timestamp)
         m = max([packet.timestamp for flow in self.flows for packet in flow.packets])
@@ -70,7 +62,7 @@ class Flow:
         self.port_src = _vector[2]
         self.port_dst = _vector[3]
 
-        self.packets = packets  # list
+        self.packets = sorted(packets,key=lambda x:x.timestamp)
         self.packet_num = len(self.packets)
         self.total_byte = sum([packet.byte for packet in self.packets])
 
