@@ -16,15 +16,8 @@ if __name__ == '__main__':
             for item in botnet_list:
                 if int(key[0]) == item['ID']:
                     item['RANK'] = index + 1
+                    item['SCORE'] = key[1]
 
         for item in botnet_list:
             print '*' * 50
             print item
-
-'''
-CREATE TABLE `filterip` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `IP` char(15) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-'''

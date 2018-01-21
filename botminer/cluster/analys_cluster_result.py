@@ -1,5 +1,7 @@
 import os
 import csv
+from botminer.util import view
+
 from graph.botnet import botnet_list
 
 def analys(num):
@@ -15,11 +17,12 @@ def analys(num):
         botnet['row_record'] = {}
 
     ipnum = []
-
-    with open('C:/Desktop/bot/botminer/result/kmeans_result41{}.csv'.format(num)) as f:
+    statistics = {}
+    with open('C:/Desktop/bot/botminer/result/kmeans_result42{}.csv'.format(num)) as f:
     # with open('C:/Desktop/kmeans52_{}.csv'.format(num)) as f:
         reader = csv.reader(f)
         for row_index,row in enumerate(reader):
+            statistics[row_index] = len(row)
             ipnum.append(len(row))
             for bot_index, botnet in enumerate(botnet_list):
                 botnet['row_record'][row_index] = set()
@@ -35,8 +38,11 @@ def analys(num):
             if len(botnet['row_record'][key]) > max:
                 max = len(botnet['row_record'][key])
                 pointer = key
+        if botnet['NAME']=='Mirai':
+            view.draw_mirai_cluster({'bot':80,'normal':statistics[pointer]-80})
         print botnet['NAME'],'\t', pointer+1, '\t', max,'/',ipnum[pointer],'/',len(botnet['bots'])
         # print botnet['cnc_row_record'],'\t',sum(botnet['cnc_row_record'])
+    # view.draw_cluster_result(statistics)
 
 def analys_oddball(top1000_oddball,clusterfile):
     ip_map = {}

@@ -33,7 +33,7 @@ def get_cflow_data():
     import MySQLdb
     db = MySQLdb.connect(DB.HOST, DB.USER, DB.PASS, DB.NAME)
     cursor = db.cursor()
-    sql = "select * from Cflow4 order by id"
+    sql = "select * from Cflow5 order by id"
     cflows = cursor.fetchmany(cursor.execute(sql))
     print "[database] cflows: {}".format(len(cflows))
     return cflows

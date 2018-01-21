@@ -13,7 +13,7 @@ def drawBar(statistics, title, xlabel, ylabel):
     # 设置柱的文字说明
     # 第一个参数为文字说明的横坐标
     # 第二个参数为文字说明的内容你想怎样
-    plt.xticks(range(len(xticks)), xticks)
+    # plt.xticks(range(len(xticks)), xticks)
 
     # 设置横坐标的文字说明
     plt.xlabel(xlabel)
@@ -26,14 +26,14 @@ def drawBar(statistics, title, xlabel, ylabel):
     plt.show()
 
 #绘制饼形图
-def drawPie(statistics):
+def drawPie(statistics,title):
     labels = statistics.keys()
     #创建饼形图
     #第一个参数为扇形的面积
     #labels参数为扇形的说明文字
     #autopct参数为扇形占比的显示格式
     plt.pie([statistics.get(label, 0) for label in labels], labels=labels, autopct='%1.1f%%')
-    plt.title('statistic of ip of the log')
+    plt.title(title)
     plt.show()
 
 def drawScatter(statistics):

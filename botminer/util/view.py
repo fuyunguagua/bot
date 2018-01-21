@@ -20,3 +20,12 @@ def show_outline_score():
 def show_outline_score_scatter():
     result = result_getter.get_outline_scores()
     picture.drawScatter(result)
+
+def draw_cluster_result(result):
+    picture.drawBar(result, title='cluster result', xlabel='id', ylabel='num')
+
+def draw_mirai_cluster(result,title):
+    picture.drawPie(result,title)
+
+# draw_mirai_cluster({'bot':80,'normal':80-80},'')
+# draw_mirai_cluster({'bot':80,'normal':3467-80},'')

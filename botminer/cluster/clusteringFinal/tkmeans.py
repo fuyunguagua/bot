@@ -11,7 +11,7 @@ def run_kmeans(cluster_num):
     ip.close()
     X = np.loadtxt("result/tmp.csv", delimiter=",", skiprows=0, ndmin=2)
 
-    with open('result/kmeans_result41{}.csv'.format(cluster_num), 'wb+') as csvfile:
+    with open('result/kmeans_result42{}.csv'.format(cluster_num), 'wb+') as csvfile:
         writer = csv.writer(csvfile)
         result=[]
         k_means = KMeans(init="k-means++",n_clusters=cluster_num,n_init=10)

@@ -61,15 +61,15 @@ def run():
     # affinityPropagation(1,2)
     # run_kmeans(100)
     # analys(100)
-    for i in range(1,11):
-        print '-'*100
-        print 'cluster number is: ',100+i*50
-        run_kmeans(100+i*50)
-        analys(100+i*50)
+    # for i in range(1,11):
+    #     print '-'*100
+    #     print 'cluster number is: ',100+i*50
+    #     run_kmeans(100+i*50)
+    #     analys(100+i*50)
     # run_cluster() #聚类cflow
     # cross_cluster(cpanel.group, cluster_result_file='result/msresult.csv')
     # view.show_score()# 画图展示得分的分布
-    # view.show_outline_score_scatter()
+    view.show_outline_score_scatter()
 
 
 #以图的分析为主的话，那么拿到各个疑似是c&c服务器的IP，取到与之相连的各个可能是bot的IP，判断它们在聚类是否能聚到一起，如果能

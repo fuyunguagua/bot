@@ -83,8 +83,8 @@ def scale_cflow():
     for cflow in cpanel.C_FLOWS:
         for i in range(fph_max_len-len(cflow.fph)):
             cflow.fph.append(0)
-    for cflow in cpanel.C_FLOWS:
-        cflow.fph = cflow.fph[1:]
+    # for cflow in cpanel.C_FLOWS:
+    #     cflow.fph = cflow.fph[1:]
     # scale_data_fph()
     for each in ['bps', 'ppf', 'bpp']:
         scale_data(each)
