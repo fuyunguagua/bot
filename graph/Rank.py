@@ -5,7 +5,7 @@ from botnet import botnet_list
 
 if __name__ == '__main__':
 
-    with open('finalscore.csv') as file:
+    with open('C:/Desktop/bot/botminer/result/finalscore.csv') as file:
         li = []
         for line in file:
             id = line[0:-1].split(',')[0]

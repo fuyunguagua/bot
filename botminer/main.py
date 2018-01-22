@@ -77,7 +77,7 @@ def run():
 import os
 
 def cross():
-
+    outline_threshold = 3
     class OddBall(object):
         def __init__(self, ID):
             self.attrs = {}
@@ -113,9 +113,12 @@ def cross():
     def get_top1000_oddball_id(ids):
         with open('C:/Desktop/bot/graph/oddball/finalscore.csv','r') as f:
             for index,line in enumerate(f):
-                if index ==  1000:
-                    return
-                ids.append(line.split(',')[0])
+                #拿出前1000的名字
+                if index == 1000:
+                    pass
+                id,score = line.split(',')
+                if float(score) < outline_threshold:
+                    ids.append(line.split(',')[0])
 
     oddballlist = []
     top1000 = []
