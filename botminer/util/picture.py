@@ -54,3 +54,4 @@ def drawScatter(statistics):
     plt.legend('x1')
     # 显示所画的图
     plt.show()
+

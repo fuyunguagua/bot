@@ -10,7 +10,17 @@ from model import Packet
 
 def read_packets():
     """
-    从数据库中读取Packets并实例化
+    从数据库中读取Packets并实例化Hackers have been using the botnet to conduct a distributed denial-of-service attack on a target website, sending a large amount of spam, stealing large amounts of sensitive information within a short period of time, seizing system resources for illegal purposes and making profits, arousing the concern of domestic security companies. The academic community began to pay attention to the development of botnets in 2003. Some Honeynet teams and some members of the Honeynet Research Alliance use Honeynet Analytics to track and analyze botnet activity in depth, such as Bill McCarty at Azusa Pacific University, Richard Clarke at the French Honeynet Program, University Dave Dittrich and German honeynet project team. Some valid detection models have been proposed. For example, In [x], Guofei Gu et al. present a general detection framework that is independent of botnet C & C protocol and structure, and requires no a priori knowledge of botnets (such as captured bot binaries and hence the botnet signatures, and C & C server names / addresses).
+However, as botnet protocols, structures, and attackers continue to evolve, many of the more powerful detection solutions fail to adapt to the new environment, reducing or even becoming ineffective, at a loss to highly concealed malicious behavior. For instant, Botminer can’t be able to effectively detect the 2016 IoT botnet Mirai.
+In response to these circumstances, the academic community launched a new round of botnets in-depth study.
+In 2010, [10] present a framework for passive tracking and identification of botnets based on analysis on three distinct but related levels(single packet analysis, network traffic analysis, TCP/IP traffic content analysis) to find more comprehensive tracking of bots.
+In 2011, Wei Lu et al. address the issue that traffic content can be encrypted with the evolution of botnet and as a result leading to a fail of content based detection approaches In[X1].
+In 2012, [6] propose a light-weight mechanism BotGAD to detect botnets using their fundamental characteristics, i.e., group activity.[8] propose a detection framework called BotGrab that is able to detect unknown botnets because it utilizes an unsupervised technique driven by intrinsic characteristics such as coordinated group activities（找到了内在特征）, without a priori knowledge of them.
+In 2013, [9] propose event-driven log analysis software for users that lack knowledge about botnet analysis that enables detection of botnet activities and indicates whether the end-users machines have become a member of a botnet.[12][13]
+In 2014, [X4] compares the output of three different botnet detection methods by executing them over a new, real, labeled and large botnet dataset which includes botnet, normal and background traffic.[11]
+In 2015, anomaly score based botnet detection is proposed by [X3] to identify the botnet activities by using the similarity measurement and the periodic characteristics of botnets.
+In 2016, David Zhao et al. propose a new approach in[X2] to detect botnet activity based on traffic behavior analysis by classifying network traffic behavior using machine learning. In [X5], G. Kirubavathi et al. propose a novel approach to detect botnets irrespective of their structures, based on network traffic flow behavior analysis and machine learning techniques. [7]
+
     """
 
     db = MySQLdb.connect(conf.DB.HOST, conf.DB.USER, conf.DB.PASS, conf.DB.NAME)
