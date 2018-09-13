@@ -19,10 +19,9 @@ loader
 
 **数据入库**
 
-* `python main.py ./data2 <GROUP_ID> <TIME> <NOTE>`
+* `python main.py ./data2 <TIME> <NOTE>`
 
 ```html
-<GROUP_ID> 数据组别，与已有重复会报错
 <TIME>     添加数据的时间，不重要。
 <NOTE>     备注信息（数据内容描述、上传者等）
 ```

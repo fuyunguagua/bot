@@ -51,24 +51,24 @@ def main():
 
 
 def run():
-    # init_options()
-    # read_packets()
-    # split_flow()
-    # split_cflow()
-    # scale_cflow()
-    # save_calc_results()
-    # run_fetchdata()
-    # affinityPropagation(1,2)
-    # run_kmeans(100)
-    # analys(100)
-    # for i in range(1,11):
-    #     print '-'*100
-    #     print 'cluster number is: ',100+i*50
-    #     run_kmeans(100+i*50)
-    #     analys(100+i*50)
-    # run_cluster() #聚类cflow
-    # cross_cluster(cpanel.group, cluster_result_file='result/msresult.csv')
-    # view.show_score()# 画图展示得分的分布
+    init_options()
+    read_packets()
+    split_flow()
+    split_cflow()
+    scale_cflow()
+    save_calc_results()
+    run_fetchdata()
+    affinityPropagation(1,2)
+    run_kmeans(100)
+    analys(100)
+    for i in range(1,11):
+        print '-'*100
+        print 'cluster number is: ',100+i*50
+        run_kmeans(100+i*50)
+        analys(100+i*50)
+    run_cluster() #聚类cflow
+    cross_cluster(cpanel.group, cluster_result_file='result/msresult.csv')
+    view.show_score()# 画图展示得分的分布
     view.show_outline_score_scatter()
 
 
