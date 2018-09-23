@@ -48,9 +48,11 @@ if __name__ == '__main__':
     file_or_directory = sys.argv[1]
     table_name = sys.argv[2]
     delete = False
+
     if '--delete' in sys.argv:  # delete local pcap file after loaded.
         print "[system] File delete enabled."
         delete = True
+
     print('[Initial] Spliting pcap file')
     split_files(file_or_directory)
     rename_outfile(file_or_directory)

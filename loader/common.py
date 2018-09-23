@@ -11,14 +11,19 @@ from config import db,IP_SET
 class Log():
     filter_packets_num = 0
 
-
 cursor = db.cursor()
+
 def print_list(l):
     for index, i in enumerate(l):
         print index,i
+
 def init_database():
     cursor = db.cursor()
-    #cursor.execute("create database if not exists BOT;")
+    try:
+        cursor.execute("create database if not exists botdata;")
+    except e:
+        print e
+
     db.select_db("BOT")
     sql = """CREATE TABLE DataGroup(
              ID INT NOT NULL AUTO_INCREMENT,
@@ -94,6 +99,7 @@ def statistics_file(path):
         name_set.append(int(name_suffix))
         name_set = sorted(name_set,reverse=False)
     return name_set
+
 def insert_packets(file_or_directory = '.', table_name = '',delete=False):
 
     def insert_single_file(filename,Log):
@@ -118,7 +124,6 @@ def insert_packets(file_or_directory = '.', table_name = '',delete=False):
             if bin(pcap[i][TCP].flags)[-1] == '1':
                 flag = 'Fin'
             elif bin(pcap[i][TCP].flags)[-2] == '1':
-
                 flag = 'Syn'
             else:
                 flag = ''

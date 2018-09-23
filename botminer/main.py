@@ -129,5 +129,5 @@ def cross():
 
 
 if __name__ == '__main__':
-    pass
+    run()
 
