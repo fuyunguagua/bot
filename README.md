@@ -1,6 +1,17 @@
-loader
-------
-解析pcap文件，结果存入MySQL数据库。
+#描述
+````
+这是一个有关僵尸网络的流量分析项目，该方法通过对离线的流量进行聚类和图论特征的分析利用投票机制决定可疑的僵尸网络主机群。
+具体论文请搜索《BotCapturer: Detecting Botnets based on Two-Layered Analysis with Graph Anomaly Detection and Network Traffic Clustering, International Journal of Performability Engineering, vol. 14, no. 5, pp. 1050-1059, May 2018. EI》
+````
+方法步骤
+* 装载离线的流量入数据库
+* 图论分析，找到异常点
+* 主机间通讯模式的抽取，聚类分析
+* 综合分析，输出主机群
+
+##装载离线流量
+
+解析pcap文件，结果存入MySQL数据库
 
 **准备工作**
 
@@ -68,7 +79,18 @@ GROUP_ID | UPLOAD_TIME | UPLOAD_NAME | START_TIME | PACKETS | CALC_CFLOW
 15	1	        cdxy-real	1000.0	5242606	32420
 
 ```
+## 图的分析
 
+异常得分的计算
+这部分的代码利用的是：
+
+输入：两两主机之间的交互频度
+
+输出：每个主机的异常得分
+
+
+
+## 聚类分析
 计算Cflow并存入数据库  
 
 * `python main.py 6 --save`

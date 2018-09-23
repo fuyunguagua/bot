@@ -16,6 +16,7 @@ class apanel_cluster:
     def detect_ares(self):
         if "api/pop" in str(self.packet['Raw'].load):
             self.insert_database('Ares')
+
     def insert_database(self, table_name):
         try:
             ip_src = self.packet['IP'].src
